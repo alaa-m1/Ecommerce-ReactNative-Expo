@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.alaa_m.EcommerceReactNativeExpo"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +32,9 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "androidStatusBar": {
+      "hidden": false
     }
   }
 }
