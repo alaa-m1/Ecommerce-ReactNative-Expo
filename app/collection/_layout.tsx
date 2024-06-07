@@ -15,39 +15,9 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="col1"
         options={{
-          title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="home" color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="products/[id]"
-        options={{
-          href:"products/100",
-          title: "Products",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="shopping-basket" color={color} />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="auth/index"
-        options={{
-          title: "99Auth",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="login" color={color} />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="checkout/index"
-        options={{
-          title: "checkout11",
+          title: "Col 1111",
           // href: null,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name="shopping-cart-checkout" color={color} />
@@ -55,9 +25,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="dashboard/index"
+        name="col2"
         options={{
-          title: "dashboard",
+          title: "Col 2222",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "space-dashboard" : "dashboard"}

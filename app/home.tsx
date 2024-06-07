@@ -1,15 +1,13 @@
 import { Image, StyleSheet, Platform, Text } from "react-native";
 
 import {
-  AnimatedIcon,
   ParallaxScrollView,
   CustomText,
   CustomView,
 } from "@/shared";
 import { Link } from "expo-router";
-import { MaterialIcons } from "@expo/vector-icons";
 
-export default function HomeScreen() {
+export default function Home() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
@@ -20,25 +18,8 @@ export default function HomeScreen() {
         />
       }
     >
-      <CustomView style={styles.titleContainer}>
-        <Text>ssss22</Text>
-        <CustomText type="title">Welcome!55</CustomText>
-        {/* <MaterialIcons name="close" color="#fff" size={22} /> */}
-        <AnimatedIcon icon={"555"}/>
-        <Text>Home</Text>
-      </CustomView>
-      <Link href="/collection/col2">Navigate to nested collection</Link>
-
-      <Link href="/products/5">View first user product 5</Link>
-
-      <Link
-        href={{
-          pathname: "/products/[id]",
-          params: { id: "2" },
-        }}
-      >
-        View second user details
-      </Link>
+      <Link href="/modal">Present modal</Link>
+      
       <CustomView style={styles.stepContainer}>
         <CustomText type="subtitle">Step 1: Try it</CustomText>
         <CustomText>
