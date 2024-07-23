@@ -25,6 +25,9 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="products/[id]"
+        // getId={
+        //   ({ params }) => String(Date.now())
+        // }
         options={{
           href:"products/100",
           title: "Products",
@@ -34,21 +37,12 @@ export default function TabLayout() {
         }}
       />
 
-      <Tabs.Screen
-        name="auth/index"
-        options={{
-          title: "99Auth",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="login" color={color} />
-          ),
-        }}
-      />
 
       <Tabs.Screen
         name="checkout/index"
         options={{
           title: "checkout11",
-          // href: null,
+          href: null,//disable the button
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name="shopping-cart-checkout" color={color} />
           ),
