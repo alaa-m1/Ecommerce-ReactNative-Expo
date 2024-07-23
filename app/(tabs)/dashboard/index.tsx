@@ -18,7 +18,7 @@ export default function TabTwoScreen() {
       }
     >
       <CustomView style={styles.titleContainer}>
-        <CustomText type="title">Explore</CustomText>
+        <CustomText type="title">Explore  1</CustomText>
       </CustomView>
       <CustomText>
         This app includes example code to help you get started.

@@ -29,7 +29,13 @@ export default function HomeScreen() {
       </CustomView>
       <Link href="/collection/col2">Navigate to nested collection</Link>
 
-      <Link href="/products/5">View first user product 5</Link>
+      <Link 
+      href="/products/5" 
+      // href={{
+      //     pathname: '/products/[id]',
+      //     params: { id: '5' },
+      //   }}
+        >View first user product 5</Link>
 
       <Link
         href={{
