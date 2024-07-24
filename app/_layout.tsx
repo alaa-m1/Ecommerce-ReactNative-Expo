@@ -8,13 +8,10 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { ComponentProps, useEffect } from "react";
 import "react-native-reanimated";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useColorScheme } from "@/shared";
-import { Image, SafeAreaView, Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import "@expo/metro-runtime";
 import { Ionicons } from "@expo/vector-icons";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { Drawer } from "expo-router/drawer";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();

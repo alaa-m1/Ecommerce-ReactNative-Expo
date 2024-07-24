@@ -1,13 +1,11 @@
-import { Image, StyleSheet, Platform, Text, Linking } from "react-native";
+import { Image, StyleSheet } from "react-native";
 
 import {
-  AnimatedIcon,
   ParallaxScrollView,
   CustomText,
   CustomView,
 } from "@/shared";
 import { Link, Stack } from "expo-router";
-import { MaterialIcons } from "@expo/vector-icons";
 
 export default function HomeScreen() {
   return (

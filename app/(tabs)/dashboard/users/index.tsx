@@ -8,8 +8,6 @@ import {
   ParallaxScrollView,
   CustomView,
 } from "@/shared";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { Drawer } from "expo-router/drawer";
 
 export default function TabTwoScreen() {
   return (

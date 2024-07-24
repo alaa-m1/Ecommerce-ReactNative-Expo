@@ -11,10 +11,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import {
-  SafeAreaView,
-  SafeAreaProvider,
-  SafeAreaInsetsContext,
-  useSafeAreaInsets,
+  SafeAreaView
 } from "react-native-safe-area-context";
 import { LoadingSpinner } from "@/shared/components/LoadingSpinner";
 import { CustomModal } from "@/shared/components/CustomModal";

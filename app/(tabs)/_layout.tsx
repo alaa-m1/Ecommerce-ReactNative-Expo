@@ -1,6 +1,5 @@
 import { Tabs } from "expo-router";
 import React from "react";
-
 import { TabBarIcon, useColorScheme } from "@/shared";
 import { Colors } from "@/shared/constants/Colors";
 
