@@ -2,7 +2,7 @@ import { View, StyleSheet } from 'react-native'
 import React from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { Link, Stack } from 'expo-router';
-import { LogoTitle, PageLogo } from '../_layout';
+import { PageLogo } from '../_layout';
 const Auth22=()=> {
   const loginWithFacebook = () => {
     console.log('Button pressed');

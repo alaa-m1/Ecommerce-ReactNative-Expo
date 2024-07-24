@@ -8,9 +8,8 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { ComponentProps, useEffect } from "react";
 import "react-native-reanimated";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useColorScheme } from "@/shared";
-import { Image, SafeAreaView, Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import "@expo/metro-runtime";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -34,27 +33,29 @@ export default function RootLayout() {
   }
 
   return (
-    // <SafeAreaProvider>
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack
-        screenOptions={{
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: "#f4511e",
-          },
-          // headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-          headerTitle: "aaaaaaaa",
-        }}
-      >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="auth" />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
-    // {/* </SafeAreaProvider> */}
+    <>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            headerStyle: {
+              backgroundColor: "#f4511e",
+            },
+            // headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitle: "aaaaaaaa",
+          }}
+        >
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="auth" />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </ThemeProvider>
+       {/* </SafeAreaProvider> */}
+    </>
   );
 }
 
