@@ -9,13 +9,14 @@ export default function TabLayout() {
 
   return (
     <Tabs
-      screenOptions={{
+    initialRouteName= 'dashboard'
+    screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="tab1"
         options={{
           title: "Home",
           tabBarIcon: ({ color, focused }) => (
@@ -49,9 +50,22 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="dashboard/index"
+        name="dashboard"
         options={{
           title: "dashboard",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "space-dashboard" : "dashboard"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="dashboard/users/index"
+        options={{
+          title: "dashboard",
+          href:null,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "space-dashboard" : "dashboard"}

@@ -13,6 +13,8 @@ import { useColorScheme } from "@/shared";
 import { Image, SafeAreaView, Text, StyleSheet } from "react-native";
 import "@expo/metro-runtime";
 import { Ionicons } from "@expo/vector-icons";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Drawer } from "expo-router/drawer";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -34,27 +36,29 @@ export default function RootLayout() {
   }
 
   return (
-    // <SafeAreaProvider>
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack
-        screenOptions={{
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: "#f4511e",
-          },
-          // headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-          headerTitle: "aaaaaaaa",
-        }}
-      >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="auth" />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
-    // {/* </SafeAreaProvider> */}
+    <>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            headerStyle: {
+              backgroundColor: "#f4511e",
+            },
+            // headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitle: "aaaaaaaa",
+          }}
+        >
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="auth" />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </ThemeProvider>
+       {/* </SafeAreaProvider> */}
+    </>
   );
 }
 
