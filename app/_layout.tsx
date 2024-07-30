@@ -35,7 +35,6 @@ export default function RootLayout() {
   return (
     <>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        
         <Stack
           screenOptions={{
             headerShown: false,
@@ -49,12 +48,19 @@ export default function RootLayout() {
             headerTitle: "aaaaaaaa",
           }}
         >
+          <Stack.Screen
+            name="modal"
+            options={{
+              // Set the presentation mode to modal for our modal route.
+              presentation: "modal",
+            }}
+          />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="auth" />
           <Stack.Screen name="+not-found" />
         </Stack>
       </ThemeProvider>
-       {/* </SafeAreaProvider> */}
+      {/* </SafeAreaProvider> */}
     </>
   );
 }

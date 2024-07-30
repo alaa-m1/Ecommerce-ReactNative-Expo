@@ -1,4 +1,12 @@
-import { Image, StyleSheet, Platform, Text } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Platform,
+  Text,
+  TouchableOpacity,
+  Pressable,
+  View,
+} from "react-native";
 
 import {
   AnimatedIcon,
@@ -6,9 +14,12 @@ import {
   CustomText,
   CustomView,
 } from "@/shared";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { btnStyles } from "@/shared/style";
 
 export default function HomeScreen() {
+  const router = useRouter();
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#fff", dark: "#1D3D47" }}
@@ -49,18 +60,42 @@ export default function HomeScreen() {
       </CustomView>
       <CustomView style={styles.stepContainer}>
         <CustomText type="subtitle">Support</CustomText>
-        <CustomText>
-          ISO -Android
-        </CustomText>
+        <CustomText>ISO -Android</CustomText>
       </CustomView>
       <CustomView style={styles.stepContainer}>
         <CustomText type="subtitle">Client Support</CustomText>
         <CustomText>
-         24/24
-          <CustomText type="defaultSemiBold">After buying support</CustomText>{" "}
-          - Two versions free update <CustomText type="defaultSemiBold">2</CustomText>
+          24/24
+          <CustomText type="defaultSemiBold">After buying support</CustomText> -
+          Two versions free update{" "}
+          <CustomText type="defaultSemiBold">2</CustomText>
         </CustomText>
       </CustomView>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Link href="/modal">Present modal</Link>
+    </View>
+      <TouchableOpacity
+        style={btnStyles.heading}
+        onPress={() => router.push("/dashboard/users")}
+        activeOpacity={0.8}
+      >
+        {/* <Ionicons
+          name={isOpen ? 'chevron-down' : 'chevron-forward-outline'}
+          size={18}
+          color={theme === 'light' ? Colors.light.icon : Colors.dark.icon}
+        /> */}
+        <CustomText type="defaultSemiBold">Go to users page</CustomText>
+      </TouchableOpacity>
+      <Pressable
+        style={[
+          btnStyles.PressableButton,
+          btnStyles.PressableButtonPrimary
+        ]}
+        onPress={() => router.push("/(home)/profile")}
+      >
+        <Text style={styles.textStyle}>Go to users profile page</Text>
+      </Pressable>
     </ParallaxScrollView>
   );
 }
@@ -81,5 +116,19 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: "absolute",
+  },
+  heading: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  content: {
+    marginTop: 6,
+    marginLeft: 24,
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
