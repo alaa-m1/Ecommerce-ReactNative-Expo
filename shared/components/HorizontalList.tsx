@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { StyleSheet, FlatList, Image, Platform, Pressable } from "react-native";
+import { btnStyles } from "../style";
 
 type HorizontalListProps<T> = {
   onSelect: (item: T) => void;
@@ -20,6 +21,7 @@ const HorizontalList = <T,>({
       contentContainerStyle={styles.listContainer}
       renderItem={({ item, index }) => (
         <Pressable
+        style={[btnStyles.PressableButton, btnStyles.PressableButtonSecondary]}
           onPress={() => {
             onSelect(item);
             onCloseModal();

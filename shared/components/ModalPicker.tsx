@@ -1,5 +1,6 @@
 import { Modal, View, Text, Pressable, StyleSheet } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { btnStyles } from "../style";
 
 export default function ModalPicker({
   open,
@@ -12,7 +13,10 @@ export default function ModalPicker({
       <View style={styles.modalContent}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>{title}</Text>
-          <Pressable onPress={onClose}>
+          <Pressable
+            style={[btnStyles.PressableButton, btnStyles.PressableButtonSecondary]}
+            onPress={onClose}
+          >
             <MaterialIcons name="close" color="#fff" size={22} />
           </Pressable>
         </View>
@@ -52,5 +56,5 @@ type ModalPickerProps = {
   open: boolean;
   children: React.ReactNode;
   onClose: () => void;
-  title: string
+  title: string;
 };

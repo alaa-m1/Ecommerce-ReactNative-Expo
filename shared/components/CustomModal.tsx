@@ -1,4 +1,5 @@
 import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { btnStyles } from "../style";
 
 type CustomModalProps = {
   open: boolean;
@@ -17,7 +18,7 @@ export const CustomModal = ({ open, onModalClose }: CustomModalProps) => {
         <View style={styles.modalView}>
           <Text style={styles.modalText}>Hello World!</Text>
           <Pressable
-            style={[styles.button, styles.buttonClose]}
+            style={[btnStyles.PressableButton, btnStyles.PressableButtonSecondary]}
             onPress={() => onModalClose()}
           >
             <Text style={styles.textStyle}>Hide Modal</Text>
@@ -49,17 +50,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  // buttonOpen: {
-  //   backgroundColor: '#F194FF',
-  // },
-  buttonClose: {
-    backgroundColor: "#2196F3",
   },
   textStyle: {
     color: "white",
