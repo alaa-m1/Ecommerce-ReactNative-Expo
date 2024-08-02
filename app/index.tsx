@@ -32,7 +32,6 @@ export default function HomeScreen() {
     >
       <CustomView style={styles.titleContainer}>
         <CustomText type="title">Phoenix Al-Ankaa</CustomText>
-        <br />
         <Text>Phoenix E-Commerce</Text>
         {/* <MaterialIcons name="close" color="#fff" size={22} /> */}
         <AnimatedIcon icon={"v 1.0"} />

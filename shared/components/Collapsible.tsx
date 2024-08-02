@@ -5,6 +5,7 @@ import { StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
 import { CustomText } from './CustomText';
 import { CustomView } from './CustomView';
 import { Colors } from '@/shared/constants/Colors';
+import { btnStyles } from '../style';
 
 export function Collapsible({ children, title }: PropsWithChildren & { title: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
   return (
     <CustomView>
       <TouchableOpacity
-        style={styles.heading}
+        style={btnStyles.heading}
         onPress={() => setIsOpen((value) => !value)}
         activeOpacity={0.8}>
         <Ionicons
@@ -29,11 +30,6 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
 }
 
 const styles = StyleSheet.create({
-  heading: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
   content: {
     marginTop: 6,
     marginLeft: 24,
