@@ -42,7 +42,7 @@ export default function TabLayout() {
         name="checkout/index"
         options={{
           title: "checkout11",
-          href: null,//disable the button
+          //href: null,//disable the button
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name="shopping-cart-checkout" color={color} />
           ),
@@ -52,19 +52,6 @@ export default function TabLayout() {
         name="dashboard"
         options={{
           title: "dashboard",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "space-dashboard" : "dashboard"}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="dashboard/users/index"
-        options={{
-          title: "dashboard",
-          href:null,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "space-dashboard" : "dashboard"}
