@@ -12,7 +12,8 @@ import { useColorScheme } from "@/shared";
 import { StyleSheet } from "react-native";
 import "@expo/metro-runtime";
 import { Ionicons } from "@expo/vector-icons";
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -33,7 +34,7 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <SafeAreaProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack
           screenOptions={{
@@ -60,8 +61,8 @@ export default function RootLayout() {
           <Stack.Screen name="+not-found" />
         </Stack>
       </ThemeProvider>
-      {/* </SafeAreaProvider> */}
-    </>
+    </SafeAreaProvider>
+    
   );
 }
 
