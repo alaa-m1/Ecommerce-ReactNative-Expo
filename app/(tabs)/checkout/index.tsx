@@ -8,11 +8,10 @@ import {
   Pressable,
   Alert,
   Button,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import {
-  SafeAreaView
-} from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { LoadingSpinner } from "@/shared/components/LoadingSpinner";
 import { CustomModal } from "@/shared/components/CustomModal";
 import HorizontalList from "@/shared/components/HorizontalList";
@@ -20,8 +19,13 @@ import ModalPicker from "@/shared/components/ModalPicker";
 import CustomImage from "@/shared/components/CustomImage";
 import { KeyboardAvoidingComponent } from "@/shared/components/KeyboardAvoidingComponent";
 import { useAssets } from "expo-asset";
+import { btnStyles } from "@/shared/style";
+import { Link, useRouter } from "expo-router";
+import { CustomText } from "@/shared";
+
 const Checkout = () => {
   const [isEnabled, setIsEnabled] = useState(false);
+  const router = useRouter();
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   const [modalVisible, setModalVisible] = useState(false);
   const handleModalClose = () => {
@@ -65,6 +69,17 @@ const Checkout = () => {
         {/* <StatusBar style="auto" /> */}
         <StatusBar />
       </View>
+      <Link href="/collection/col2">Navigate to nested collection</Link>
+
+          <Link
+            href="/products/5"
+            // href={{
+            //     pathname: '/products/[id]',
+            //     params: { id: '5' },
+            //   }}
+          >
+            Review product 5
+          </Link>
       <Text>ttttt</Text>
       <View>
         <View>
@@ -77,7 +92,7 @@ const Checkout = () => {
 
       <View style={styles.centeredView}>
         <Pressable
-          style={[styles.button, styles.buttonOpen]}
+          style={[btnStyles.PressableButton, btnStyles.PressableButtonPrimary]}
           onPress={() => setModalVisible(true)}
         >
           <Text>Show Modal</Text>
@@ -95,6 +110,33 @@ const Checkout = () => {
           value={isEnabled}
         />
       </View>
+      {/* <Link href="/" asChild={true}>
+          <CustomText type="link">12345</CustomText>
+        </Link> */}
+      {/* <MaterialIcons name="close" color="#fff" size={22} /> */}
+
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Home Screen</Text>
+        <Link href="/modal">Present modal</Link>
+      </View>
+      <TouchableOpacity
+        style={btnStyles.heading}
+        onPress={() => router.push("/dashboard/users")}
+        activeOpacity={0.8}
+      >
+        {/* <Ionicons
+          name={isOpen ? 'chevron-down' : 'chevron-forward-outline'}
+          size={18}
+          color={colors[theme].icon}
+        /> */}
+        <CustomText type="defaultSemiBold">Go to users page</CustomText>
+      </TouchableOpacity>
+      <Pressable
+        style={[btnStyles.PressableButton, btnStyles.PressableButtonPrimary]}
+        onPress={() => router.push("/(home)/profile")}
+      >
+        <Text style={styles.textStyle}>Go to users profile page</Text>
+      </Pressable>
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -122,16 +164,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 22,
   },
-
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-
   textStyle: {
     color: "black",
     fontWeight: "bold",

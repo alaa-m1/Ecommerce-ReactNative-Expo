@@ -1,16 +1,19 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { TabBarIcon, useColorScheme } from "@/shared";
-import { Colors } from "@/shared/constants/Colors";
+// import { TabBarIcon, useColorScheme } from "@/shared";
+import { colors } from "@/shared/style/colors";
+import { defaultTheme } from "@/shared/constants";
+import { useColorScheme } from "react-native";
+import { TabBarIcon } from "@/shared";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme() ?? defaultTheme;
 
   return (
     <Tabs
-    initialRouteName= 'dashboard'
-    screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+      initialRouteName="dashboard"
+      screenOptions={{
+        tabBarActiveTintColor: colors[colorScheme].tint,
         headerShown: false,
       }}
     >
@@ -29,14 +32,13 @@ export default function TabLayout() {
         //   ({ params }) => String(Date.now())
         // }
         options={{
-          href:"products/100",
+          href: "products/100",
           title: "Products",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name="shopping-basket" color={color} />
           ),
         }}
       />
-
 
       <Tabs.Screen
         name="checkout/index"

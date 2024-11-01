@@ -4,8 +4,8 @@ import { StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
 
 import { CustomText } from './CustomText';
 import { CustomView } from './CustomView';
-import { Colors } from '@/shared/constants/Colors';
 import { btnStyles } from '../style';
+import { colors } from '../style/colors';
 
 export function Collapsible({ children, title }: PropsWithChildren & { title: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
         <Ionicons
           name={isOpen ? 'chevron-down' : 'chevron-forward-outline'}
           size={18}
-          color={theme === 'light' ? Colors.light.icon : Colors.dark.icon}
+          color={colors[theme].icon}
         />
         <CustomText type="defaultSemiBold">{title}</CustomText>
       </TouchableOpacity>

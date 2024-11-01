@@ -15,7 +15,7 @@ export const CustomView = ({
 }: CustomViewProps) => {
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
-    "background"
+    "bg"
   );
 
   return <View style={[{ backgroundColor }, style]} {...otherProps} />;
