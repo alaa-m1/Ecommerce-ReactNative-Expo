@@ -34,8 +34,8 @@ export const AnimatedIcon=({icon}:AnimatedIconProps)=> {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 28,
+    fontSize: 22,
     lineHeight: 32,
-    marginTop: -6,
+    marginTop: 2,
   },
 });

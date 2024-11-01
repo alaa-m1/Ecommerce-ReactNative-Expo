@@ -6,15 +6,17 @@ import {
   CustomView,
 } from "@/shared";
 import { Link, Stack } from "expo-router";
+import { useAppStyles } from "@/shared/style";
 
 export default function HomeScreen() {
+  const appStyles=useAppStyles();
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
       headerImage={
         <Image
           source={require("@/shared/assets/images/partial-react-logo.png")}
-          style={styles.reactLogo}
+          style={appStyles.reactLogo}
         />
       }
     >
@@ -43,12 +45,5 @@ const styles = StyleSheet.create({
   stepContainer: {
     gap: 8,
     marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
   },
 });
