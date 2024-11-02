@@ -28,14 +28,13 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
-
   //////////
   const router = useRouter();
   const isAuthenticated = true; // Replace with real auth logic
 
   useEffect(() => {
     if (!isAuthenticated) {
-      router.replace('/login');
+      router.replace("/login");
     }
   }, [isAuthenticated]);
 
@@ -50,27 +49,25 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack
-          screenOptions={{
+        <Stack screenOptions={{
             headerShown: false,
-            headerStyle: {
-              backgroundColor: "#f4511e",
-            },
+            // headerStyle: {
+            //   backgroundColor: "#f4511e",
+            // },
             // headerTintColor: "#fff",
             headerTitleStyle: {
               fontWeight: "bold",
             },
             headerTitle: "Ecommerce App",
-          }}
-        >
-          <Stack.Screen name="index" options={{ title: 'Alankaa Ecommerce' }} />
-        <Stack.Screen name="shop" options={{ title: 'Shop' }} />
-        <Stack.Screen 
-          name="product/[category]" 
-          // options={({ route }) => ({ 
-          //   title: route.params.category.charAt(0).toUpperCase() + route.params.category.slice(1) 
-          // })} 
-        />
+          }}>
+          <Stack.Screen name="index" options={{ title: "Alankaa Ecommerce" }} />
+          <Stack.Screen name="shop" options={{ title: "Shop" }} />
+          <Stack.Screen
+            name="product/[category]"
+            // options={({ route }) => ({
+            //   title: route.params.category.charAt(0).toUpperCase() + route.params.category.slice(1)
+            // })}
+          />
           <Stack.Screen
             name="modal"
             options={{
