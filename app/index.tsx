@@ -37,10 +37,9 @@ export default function HomeScreen() {
       />
       <Card style={styles.card}>
         <Card.Content>
-          <Title>Welcome to Alankaa Ecommerce</Title>
+          <Title>Welcome to Alankaa Software - Ecommerce App</Title>
           <Paragraph>
-            Discover a world of fashion and accessories at your fingertips. Alankaa Software brings you a
-            seamless shopping experience with our cutting-edge ecommerce platform.
+            Discover a world of fashion and accessories with us. 
           </Paragraph>
         </Card.Content>
       </Card>
@@ -49,9 +48,8 @@ export default function HomeScreen() {
         <Card.Content>
           <Title>Why Choose Alankaa?</Title>
           <Paragraph>
+            • Alankaa Software brings you a seamless shopping experience with our cutting-edge ecommerce App.{'\n'}
             • Wide range of high-quality products{'\n'}
-            • Trendy accessories and stylish dresses{'\n'}
-            • Secure and easy payment options{'\n'}
             • Fast and reliable shipping{'\n'}
             • Excellent customer support
           </Paragraph>

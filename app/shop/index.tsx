@@ -1,16 +1,9 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { Card, Title, Paragraph, useTheme } from 'react-native-paper';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { categoriesRes } from '@/shared/constants/categoriesDetails';
-import { RootStackParamList } from '@/shared/types';
 import { Link } from 'expo-router';
-import { useCategoriesLables } from '@/components/hooks/useCategoriesLables';
-
-type ShoppingPageProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Shop'>;
-};
-
+import { useCategoriesLables } from './hooks/useCategoriesLables';
+import { SearchView } from './components/SearchView';
 
 const categoryImages = {
   accessories: require('@/shared/assets/images/categories/accessories/1.jpeg'),
@@ -19,7 +12,7 @@ const categoryImages = {
   jackets: require('@/shared/assets/images/categories/jackets/1.jpeg'),
   shoes: require('@/shared/assets/images/categories/shoes/1.jpeg'),
 };
-export default function ShoppingScreen({ navigation }: ShoppingPageProps) {
+export default function ShopScreen() {
   const theme = useTheme();
 
   const styles = StyleSheet.create({
@@ -37,10 +30,10 @@ export default function ShoppingScreen({ navigation }: ShoppingPageProps) {
   });
 
   const { mainCategoriesLabels } = useCategoriesLables();
-  console.log('mainCategoriesLabels=',mainCategoriesLabels);
   return (
     <ScrollView style={styles.container}>
       <Title style={{ padding: 16 }}>Categories</Title>
+      <SearchView/>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categoriesContainer}>
         {mainCategoriesLabels.map((category) => (
           <Link key={category.id} href={`/product/${category.label}`} asChild>
