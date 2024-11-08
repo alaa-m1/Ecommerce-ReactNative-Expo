@@ -4,6 +4,7 @@ import { Card, Title, Paragraph, useTheme } from 'react-native-paper';
 import { Link } from 'expo-router';
 import { useCategoriesLables } from './hooks/useCategoriesLables';
 import { SearchView } from './components/SearchView';
+import { SearchPanel } from './components/SearchPanel';
 
 const categoryImages = {
   accessories: require('@/shared/assets/images/categories/accessories/1.jpeg'),
@@ -34,6 +35,7 @@ export default function ShopScreen() {
     <ScrollView style={styles.container}>
       <Title style={{ padding: 16 }}>Categories</Title>
       <SearchView/>
+      <SearchPanel/>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categoriesContainer}>
         {mainCategoriesLabels.map((category) => (
           <Link key={category.id} href={`/product/${category.label}`} asChild>

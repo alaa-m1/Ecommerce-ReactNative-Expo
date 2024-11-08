@@ -5,10 +5,9 @@ import { HEADER_HEIGHT } from "../constants";
 export const useAppStyles = () => {
   const theme = useColorScheme() ?? 'light';
   const appStyles = StyleSheet.create({
-    defaultStyle: {
+    AppContainer: {
       // padding: 35,
       paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-      paddingBottom: 10,
       flex: 1,
       backgroundColor: colors[theme].bg,
     },

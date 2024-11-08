@@ -42,7 +42,7 @@ export function ParallaxView({
   return (
     <CustomView style={styles.mainContainer}>
       <CustomView
-      style={appStyles.defaultStyle}
+      style={appStyles.AppContainer}
       >
         <HeaderView headerImage={headerImage} canGoBack={canGoBack} showCardIcon={showCardIcon}/>
         <CustomView style={styles.content}>{children}</CustomView>

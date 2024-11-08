@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 export type CategoriesResponse = Array<CategoryResponse>;
 export type CategoryResponse = {
   id: number;
@@ -11,6 +13,14 @@ export type CategoryResponse = {
 };
 
 export type CategoryLabel = "accessories" | "dresses" | "hats" | "jackets" | "shoes";
+
+export type ImagePaths = {
+  [key: string]: ImageSourcePropType;
+};
+
+export type CategoryImages = {
+  [K in CategoryLabel]: ImagePaths;
+};
 
 export type RootStackParamList = {
   Home: undefined;

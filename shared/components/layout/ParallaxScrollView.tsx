@@ -67,7 +67,7 @@ export function ParallaxScrollView({
       <ScrollView
         ref={scrollRef}
         scrollEventThrottle={16}
-        style={appStyles.defaultStyle}
+        style={appStyles.AppContainer}
       >
         <HeaderView headerImage={headerImage} canGoBack={canGoBack} showCardIcon={showCardIcon}/>
         <CustomView style={styles.content}>{children}</CustomView>
