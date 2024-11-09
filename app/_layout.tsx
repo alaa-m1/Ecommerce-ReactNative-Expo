@@ -13,8 +13,20 @@ import "@expo/metro-runtime";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { defaultTheme } from "@/shared/constants";
+import CustomHeader from "@/components/layout/CustomHeader";
+import { AuthProvider } from "@/context/AuthContext";
+import { PaperProvider } from "react-native-paper";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#6200ee',
+    secondary: '#03dac4',
+  },
+};
 
 export default function RootLayout() {
   const colorScheme = useColorScheme() ?? defaultTheme;
@@ -49,32 +61,42 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack screenOptions={{
-            headerShown: false,
+      <AuthProvider>
+      <PaperProvider theme={theme}>
+        <Stack
+          screenOptions={{
+            // headerShown: false,
             // headerStyle: {
             //   backgroundColor: "#f4511e",
             // },
             // headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitle: "Ecommerce App",
-          }}>
+            // headerTitleStyle: {
+            //   fontWeight: "bold",
+            // },
+            // headerTitle: "Ecommerce App",
+            header: (props) => (
+              <CustomHeader
+              title={props.options.title || ''}
+              />
+            ),
+          }}
+        >
           <Stack.Screen name="index" options={{ title: "Alankaa Ecommerce" }} />
           <Stack.Screen name="shop" options={{ title: "Shop" }} />
-          <Stack.Screen 
-          name="product/[category]" 
-          // options={({ route }) => ({ 
-          //   title: route.params.category.charAt(0).toUpperCase() + route.params.category.slice(1) 
-          // })} 
-        />
-        <Stack.Screen 
-          name="search" 
-          options={{ 
-            presentation: 'modal',
-            title: 'Search Products',
-          }} 
-        />
+          <Stack.Screen
+            name="product/[category]"
+            // options={({ route }) => ({
+            //   title: route.params.category.charAt(0).toUpperCase() + route.params.category.slice(1)
+            // })}
+          />
+          <Stack.Screen
+            name="search"
+            options={{
+              presentation: "modal",
+              title: "Search Products",
+            }}
+          />
+          <Stack.Screen name="signin" options={{ title: "Sign In" }} />
           <Stack.Screen
             name="modal"
             options={{
@@ -86,6 +108,7 @@ export default function RootLayout() {
           {/* <Stack.Screen name="auth" /> */}
           <Stack.Screen name="+not-found" />
         </Stack>
+        </PaperProvider></AuthProvider>
       </ThemeProvider>
     </SafeAreaProvider>
   );
